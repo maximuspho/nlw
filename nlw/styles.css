@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    /*remove o paddin das caixas deixando o width sempre que foi indicado*/
     box-sizing: border-box;
 }
 
@@ -10,15 +9,10 @@ ul {
 }
 
 body {
-    /*Coloca a imagem*/
-    background-image: url(./assets/Fundo.jpg);
-    /* posiciona ao centro e no top*/
+    background-image: url(./assets/bg.jpg);
     background-position: top center;
-    /*Ajusta o tamnho do navegador almenta e diminui automatico*/
     background-size: 100% auto;
-    /*nao repete a imagem*/
     background-repeat: no-repeat;
-    /*Adiciona cor no fundo restante*/
     background-color: #121214;
 }
 
@@ -28,14 +22,15 @@ body * {
 }
 
 header {
-    margin-top: 32px;
-    height: 120px;
+    padding-top: 32px;
+    height: calc(120px + 32px);
 }
 
 header div {
     width: 120px;
     margin: auto;
-    background-image: linear-gradient(90deg, #9572fc 0%, #43e7ad 50.52%, #e2d45c 100%);
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
     border-radius: 50%;
 
     display: flex;
@@ -44,21 +39,14 @@ header div {
     transition: transform .3s;
 }
 
-/*        CSS transition              */
-
 header div:hover {
-    transform: scale(1.1);
+    transform: scale(1.1)
 }
 
 header div img {
     width: 100%;
     border-radius: 50%;
 }
-
-/* O * segnifica tudo que tiver dentro do main*/
-/* main * {
-    border: 1px solid blanchedalmond;
-} */
 
 main {
     max-width: 580px;
@@ -71,13 +59,13 @@ main {
 
 section {
     color: white;
-    background-image: linear-gradient(90deg, #9572fc 0%, #43e7ad 50.52%, #e2d45c 100%);
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
     padding-top: 4px;
     border-radius: 10px;
 }
 
 section div {
-    background-color: #2a2634;
+    background-color: #2A2634;
     padding: 32px;
     padding-top: 24px;
     border-radius: 8px;
@@ -89,13 +77,14 @@ section h2 {
 
 section p {
     letter-spacing: -0.18px;
-    color: #a1a1aa;
+    color: #A1A1AA;
 }
 
 section ul {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
+
     margin-top: 24px;
 }
 
@@ -104,7 +93,7 @@ section ul li {
 }
 
 section ul li:hover {
-    transform: scale(1.1);
+    transform: scale(1.1)
 }
 
 .games-list img {
@@ -113,33 +102,19 @@ section ul li:hover {
 }
 
 .channel-list img {
-    border-radius: 50%;
+    border-radius: 50%; 
     width: 70px;
-
-    border: 3px solid #443e54;
+    border: 1px solid #443E54;
 }
 
-/* CSS Animation - Animaçoes em CSS */
+/* animation */
 
 header div {
-    animation: fronTop .7s;
-    animation-delay: .2s backwards;
-}
-
-@keyframes fronTop {
-    from { 
-        opacity: 0;
-        transform: translateY(-30px)
-     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) 
-    }
+    animation: fromTop .7s .2s backwards;
 }
 
 main section {
-    animation: fromBotton .7s backwards;
+    animation: fromBottom .7s backwards;
 }
 
 main section:nth-child(1) {
@@ -147,22 +122,33 @@ main section:nth-child(1) {
 }
 
 main section:nth-child(2) {
-    animation-delay: 0.4s;
+    animation-delay: .3s;
 }
 
 main section:nth-child(3) {
-    animation-delay: .8s;
+    animation-delay: .6s;
 }
 
-@keyframes fromBotton {
-    from { 
+@keyframes fromTop {
+    from {
         opacity: 0;
-        transform: translateX(-30px)
-     }
+        transform: translateY(-30px)
+    }
 
-    to { 
+    to {
         opacity: 1;
-        transform: translateX(0) 
+        transform: translateY(0)
     }
 }
 
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}

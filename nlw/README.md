@@ -4,7 +4,7 @@
 
 > Trilha Explorer
 
-    Progeto construido no evento Nexr Level Week daRocketseat.
+    Progeto construido no evento Next Level Week da Rocketseat.
 
 
 [🔗 Acesse Aqui!](https://maximuspho.github.io/nlw/nlw)

@@ -1,0 +1,19 @@
+// Agrupa os padroes em um array
+
+const matches = 'aBC'.match(/[A-Z]/g) 
+
+//Output - Saida: Array [B, C]
+
+// pesquisa se existe ou nao o padrao
+
+const index = 'aBC'.search(/[A-Z]/) 
+
+//Output - Saida:  1
+
+// substitui os padroes por novo valor
+
+const next = 'aBC'.replace( /a/,    'A');
+
+//Output - Saida:  ABC
+
+ 

@@ -20,12 +20,14 @@ function setCardType(type) {
 
 globalThis.setCardType = setCardType
 
+//mascara csv
 const securityCode = document.querySelector("#security-code")
 const securityCodePattern = {
   mask: "0000",
 }
 const securityCodeMasked = IMask(securityCode, securityCodePattern)
 
+//mascara data expiraçao
 const expirationDate = document.querySelector("#expiration-date")
 const expirationDatePattern = {
   mask: "MM{/}YY",
@@ -44,6 +46,7 @@ const expirationDatePattern = {
 }
 const expirationDateMasked = IMask(expirationDate, expirationDatePattern)
 
+//mascara numero do cartao
 const cardNumber = document.querySelector("#card-number")
 const cardNumberPattern = {
   mask: [
@@ -73,6 +76,7 @@ const cardNumberPattern = {
 }
 const cardNumberMasked = IMask(cardNumber, cardNumberPattern)
 
+//click do botao
 const addButton = document.querySelector("#add-card")
 addButton.addEventListener("click", () => {
   alert("Cartão adicionado!")
@@ -82,6 +86,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
   event.preventDefault()
 })
 
+//alterando nome do cartao
 const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener("input", () => {
   const ccHolder = document.querySelector(".cc-holder .value")
@@ -89,6 +94,7 @@ cardHolder.addEventListener("input", () => {
   ccHolder.innerText = cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
 })
 
+//alterando codigo de segurança 
 securityCodeMasked.on("accept", () => {
   updateSecurityCode(securityCodeMasked.value);
 })
@@ -99,6 +105,7 @@ function updateSecurityCode(code){
   ccSecutiry.innerText = code.length === 0 ? "123" : code
 }
 
+//alterando nuemro do cartao
 cardNumberMasked.on("accept", () => {
   const cardType = cardNumberMasked.masked.currentMask.cardtype
   setCardType(cardType)
@@ -111,6 +118,7 @@ function updateCardNumber(number){
   ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
 }
 
+//alterando data de expiraçao
 expirationDateMasked.on("accept", () => {
   updateExpirationDate(expirationDateMasked.value)
 })

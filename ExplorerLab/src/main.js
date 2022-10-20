@@ -20,8 +20,8 @@ function setCardType(type) {
     ccLogo.setAttribute("src", `cc-${type}.svg`)
 }
 
-//setCardType("visa")
-globalThis.setCardType = setCardType
+setCardType("default")
+//globalThis.setCardType = setCardType
 
 // security code
 const securityCode = document.getElementById('security-code')
@@ -85,3 +85,57 @@ const cardNumberPattern = {
 }
 
 const cardNumberMasked = IMask(cardNumber, cardNumberPattern)
+
+const addButton = document.querySelector("#add-card")
+addButton.addEventListener("click", (e) => {
+    e.preventDefault()
+    alert("Opa cliquei no botão!!")
+})
+
+// document.querySelector("form").addEventListener("submit", (event) => {
+//     event.preventDefault()
+// })
+
+//Nome do titular
+const cardHolder = document.querySelector("#card-holder")
+
+cardHolder.addEventListener("input", () => {
+    const ccHolder = document.querySelector(".cc-holder .value")
+
+    ccHolder.innerText = cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
+})
+
+//CVC cartao, manipulando imask
+securityCodeMasked.on("accept", () => {
+    updateSecurityCode(securityCodeMasked.value)
+})
+
+function updateSecurityCode(code) {
+    const ccSecutiry = document.querySelector(".cc-security .value")
+    
+    ccSecutiry.innerText = code.length === 0 ? "123" : code
+}
+
+//Numero do cartao
+cardNumberMasked.on("accept", () => {
+    const cardType = cardNumberMasked.masked.currentMask.cardtype //verificar a bandeira
+    setCardType(cardType)
+    updateCardNumber(cardNumberMasked.value)
+})
+
+function updateCardNumber(number) {
+    const ccNumber = document.querySelector(".cc-number")
+
+    ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
+}
+
+// data expiração
+expirationDateMasked.on("accept", () => {
+    updateExpirationDate(expirationDateMasked.value)
+})
+
+function updateExpirationDate(date) {
+    const ccExpiration = document.querySelector(".cc-extra .value")
+
+    ccExpiration.innerText = date.length === 0 ? "02/32" : date
+}

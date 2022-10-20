@@ -45,4 +45,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by Wilson C. Silveira :wave: [Participe da nossa comunidade!](https://discord.gg/)
+Feito com ♥ by Wilson C. Silveira

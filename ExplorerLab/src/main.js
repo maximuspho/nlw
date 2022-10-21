@@ -9,7 +9,8 @@ function setCardType(type) {
   const colors = {
     visa: ["#436D99", "#2D57F2"],
     mastercard: ["#DF6F29", "#C69347"],
-    rocketseat: ["#0D6F5D", "#C3129C"],
+    paysafe: ["white", "white"],
+    express: ["white", "#E8BE31"],
     default: ["black", "gray"],
   }
 
@@ -18,7 +19,8 @@ function setCardType(type) {
   ccLogo.setAttribute("src", `cc-${type}.svg`)
 }
 
-globalThis.setCardType = setCardType
+setCardType("default")
+//globalThis.setCardType = setCardType
 
 //mascara csv
 const securityCode = document.querySelector("#security-code")
@@ -59,6 +61,16 @@ const cardNumberPattern = {
       mask: "0000 0000 0000 0000",
       regex: /(^5[1-5]\d{0,2}|^22[2-9]\d|^2[3-7]\d{0,2})\d{0,12}/,
       cardtype: "mastercard",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^3[47]\d{0,13}/,
+      cardtype: "express",
+    },
+    {
+      mask: "0000 0000 0000 0000",
+      regex: /^9\d{0,15}/,
+      cardtype: "paysafe",
     },
     {
       mask: "0000 0000 0000 0000",
